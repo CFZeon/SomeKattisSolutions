@@ -1,0 +1,51 @@
+#include <iostream>
+#include <unordered_map>
+#include <string>
+#include <ctype.h>
+
+using namespace std;
+
+int main()
+{
+    int N;
+    cin >> N;
+    cin.get();
+    int i;
+    for (i = 0; i < N; i++)
+    {
+        unordered_map<char, int> alphabet;
+        string line;
+        getline(cin, line);
+        for (int j = 0; j < line.length(); j++)
+        {
+            char current = line[j];
+            if ((current >= 'a' && current <= 'z') || (current >= 'A' && current <= 'Z'))
+            {
+                current = tolower(current);
+            }
+            else
+                continue;
+
+            alphabet[current] += 1;
+        }
+        string missing = "missing ";
+        bool ispangram = true;
+        char iter = 'a';
+        for (int j = 0; j < 26; j++)
+        {
+            
+            if (alphabet[iter] == 0)
+            {
+                missing += iter;
+                ispangram = false;
+            }
+            iter++;
+        }
+        if (ispangram == true)
+            cout << "pangram";
+        else
+            cout << missing;
+        cout << endl;
+    }
+    return 0;
+}
