@@ -1,0 +1,34 @@
+#include <iostream>
+#include <unordered_map>
+#include <string>
+using namespace std;
+int main()
+{
+    int N, M;
+    string final;
+    int counter = 0, inp;
+    while (cin >> N >> M)
+    {
+        unordered_map<int, int> Nmap;
+        if (N == 0 && M == 0)
+        {
+            break;
+        }
+        for (int i=0; i<N; i++)
+        {
+            cin >> inp;
+            Nmap[inp] = 1;
+        }
+        for (int j=0; j<M; j++)
+        {
+            cin >> inp;
+            if (Nmap[inp] == 1) {
+                counter += 1;
+            }
+        }
+        cout << counter;
+        cout << endl;
+        counter = 0;
+    }
+    return 0;
+}
