@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int x, y, r, c;
+    cin >> x >> y >> r >> c;
+    cin.get();
+    // for total number of lines
+    for (int i = 0; i < x; i++)
+    {
+        string inp;
+        getline(cin, inp);
+        // for number of rows
+        for (int j = 0; j < r; j++)
+        {
+            //for all the alphabets
+            for (int l = 0; l < y; l++)
+            {
+                // for number of columns
+                for (int k = 0; k < c; k++)
+                {
+                    cout << inp[l];
+                }
+            }
+            cout << endl;
+        }
+    }
+}
