@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{   // this is a postorder traversal
+    int height, nodes, root, inplen, row, i;
+    double multiple = 1;
+    string inp;
+    cin >> height;
+    nodes = pow(2, height + 1) - 1; //total number of nodes
+    cin.ignore(1);
+    getline(cin, inp);
+    inplen = inp.length();
+    if (inplen > 0) {
+        nodes = nodes - pow(2, inplen + 1) + 1;
+        row = pow(2, inplen);
+        for (i = 0; i < inplen; i++) {
+            if (inp[i] == 'L') {
+            }
+            else if (inp[i] == 'R') {
+                multiple = multiple - (1/pow(2,i+1));
+            }
+        }
+        row = row * multiple;
+        nodes = nodes + row;
+    }
+    cout << nodes;
+    return 0;
+}
